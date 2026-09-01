@@ -21,7 +21,7 @@ export const PERSONAL = {
   linkedin: 'https://linkedin.com/in/yashwarungase', // Update this
   leetcode: 'https://leetcode.com/yashw72',           // Update this
   whatsapp: 'https://wa.me/91XXXXXXXXXX',             // Update this
-  resume: '/Yash_Warungase_Resume.pdf',               // Add resume to /public
+  resume: '/resume.pdf',
   profileImage: '/profile.jpg',                        // Add profile photo to /public
   passId: '#7254-PUNE-IN',
   passAccess: 'YW // ACCESS 01',
