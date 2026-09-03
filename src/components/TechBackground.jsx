@@ -1,33 +1,19 @@
 // components/TechBackground.jsx
-// High-performance, subtle interactive animated canvas background
-// Features: Grid lines, floating nodes with connecting constellation web,
-// programming language & developer code symbols, and subtle mouse interaction.
+// Monochrome white/gray constellation background — no cyan, no color.
+// High-performance canvas: nodes, connecting lines, programming symbols, mouse interaction.
 
 import { useEffect, useRef } from 'react';
 
 const PROGRAMMING_SYMBOLS = [
-  '{ }',
-  '</>',
-  '01',
-  'JS',
-  'TS',
-  'PY',
-  'C++',
-  '⚛',
-  'fn()',
-  '=>',
-  'const',
-  'git',
-  '===',
-  '//',
-  '[ ]',
-  'async',
+  '{ }', '</>', '01', 'JS', 'TS', 'PY', 'C++', '⚛',
+  'fn()', '=>', 'const', 'git', '===', '//', '[ ]',
+  'async', 'null', 'void', '::',
 ];
 
 export default function TechBackground({
   className = '',
   interactive = true,
-  particleDensity = 'normal', // 'low' | 'normal' | 'high'
+  particleDensity = 'normal',
   showGrid = true,
   showSymbols = true,
 }) {
@@ -47,17 +33,13 @@ export default function TechBackground({
     let symbols = [];
     let gridCrosses = [];
 
-    // Check for prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Density config
     const isMobile = window.innerWidth < 768;
     const countMultiplier = particleDensity === 'high' ? 1.4 : particleDensity === 'low' ? 0.6 : 1.0;
-    const baseNodeCount = isMobile ? Math.floor(18 * countMultiplier) : Math.floor(42 * countMultiplier);
-    const baseSymbolCount = isMobile ? Math.floor(8 * countMultiplier) : Math.floor(16 * countMultiplier);
-    const maxConnectDistance = isMobile ? 80 : 130;
+    const baseNodeCount = isMobile ? Math.floor(14 * countMultiplier) : Math.floor(36 * countMultiplier);
+    const baseSymbolCount = isMobile ? Math.floor(6 * countMultiplier) : Math.floor(14 * countMultiplier);
+    const maxConnectDistance = isMobile ? 75 : 120;
 
-    // Resize canvas with devicePixelRatio for crisp rendering
     const handleResize = () => {
       const rect = canvas.parentElement?.getBoundingClientRect() || {
         width: window.innerWidth,
@@ -74,62 +56,56 @@ export default function TechBackground({
       canvas.style.height = `${height}px`;
 
       ctx.scale(dpr, dpr);
-
       initElements();
     };
 
-    // Initialize particles, symbols, and grid points
     const initElements = () => {
       particles = [];
       symbols = [];
       gridCrosses = [];
 
-      // Create Nodes
+      // Nodes — subtle white/gray palette only
       for (let i = 0; i < baseNodeCount; i++) {
+        const brightness = Math.random() > 0.5 ? '255,255,255' : '180,180,180';
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          radius: Math.random() * 1.5 + 1,
-          color: Math.random() > 0.4 ? 'rgba(0, 240, 255,' : 'rgba(148, 163, 184,',
-          alpha: Math.random() * 0.4 + 0.15,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          radius: Math.random() * 1.2 + 0.8,
+          color: `rgba(${brightness},`,
+          alpha: Math.random() * 0.25 + 0.08,
         });
       }
 
-      // Create Floating Programming Symbols
+      // Floating symbols — monochrome
       if (showSymbols) {
         for (let i = 0; i < baseSymbolCount; i++) {
           symbols.push({
             text: PROGRAMMING_SYMBOLS[Math.floor(Math.random() * PROGRAMMING_SYMBOLS.length)],
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            size: Math.floor(Math.random() * 3) + 11, // 11px to 13px
-            alpha: Math.random() * 0.12 + 0.08,
-            rotation: (Math.random() - 0.5) * 0.2,
-            rotSpeed: (Math.random() - 0.5) * 0.002,
+            vx: (Math.random() - 0.5) * 0.2,
+            vy: (Math.random() - 0.5) * 0.2,
+            size: Math.floor(Math.random() * 3) + 10,
+            alpha: Math.random() * 0.07 + 0.04,
+            rotation: (Math.random() - 0.5) * 0.15,
+            rotSpeed: (Math.random() - 0.5) * 0.0015,
           });
         }
       }
 
-      // Create Technical Grid Intersections
+      // Grid crosshairs
       if (showGrid) {
-        const step = isMobile ? 80 : 120;
+        const step = isMobile ? 90 : 130;
         for (let x = step / 2; x < width; x += step) {
           for (let y = step / 2; y < height; y += step) {
-            gridCrosses.push({
-              x,
-              y,
-              alpha: 0.04 + (Math.sin(x + y) * 0.02),
-            });
+            gridCrosses.push({ x, y });
           }
         }
       }
     };
 
-    // Mouse Tracking
     const handleMouseMove = (e) => {
       if (!interactive) return;
       const rect = canvas.getBoundingClientRect();
@@ -149,11 +125,7 @@ export default function TechBackground({
 
     handleResize();
 
-    // Render loop
-    let tick = 0;
-
     const render = () => {
-      tick += 0.01;
       ctx.clearRect(0, 0, width, height);
 
       // Smooth mouse interpolation
@@ -165,22 +137,22 @@ export default function TechBackground({
         mouseRef.current.y = -1000;
       }
 
-      // 1. Draw Subtle Grid Crosshairs
+      // 1. Grid crosshairs
       if (showGrid) {
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.08)';
+        ctx.strokeStyle = 'rgba(255,255,255,0.045)';
         ctx.lineWidth = 1;
         for (const pt of gridCrosses) {
-          const crossSize = 3;
+          const cs = 3;
           ctx.beginPath();
-          ctx.moveTo(pt.x - crossSize, pt.y);
-          ctx.lineTo(pt.x + crossSize, pt.y);
-          ctx.moveTo(pt.x, pt.y - crossSize);
-          ctx.lineTo(pt.x, pt.y + crossSize);
+          ctx.moveTo(pt.x - cs, pt.y);
+          ctx.lineTo(pt.x + cs, pt.y);
+          ctx.moveTo(pt.x, pt.y - cs);
+          ctx.lineTo(pt.x, pt.y + cs);
           ctx.stroke();
         }
       }
 
-      // 2. Update & Draw Particles (Nodes)
+      // 2. Particles + connecting lines
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
@@ -193,8 +165,8 @@ export default function TechBackground({
             const dx = p.x - mouseRef.current.x;
             const dy = p.y - mouseRef.current.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120 && dist > 0) {
-              const force = (120 - dist) / 120 * 0.6;
+            if (dist < 110 && dist > 0) {
+              const force = (110 - dist) / 110 * 0.5;
               p.x += (dx / dist) * force;
               p.y += (dy / dist) * force;
             }
@@ -207,13 +179,13 @@ export default function TechBackground({
           if (p.y > height + 10) p.y = -10;
         }
 
-        // Draw particle
+        // Draw node
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color} ${p.alpha})`;
+        ctx.fillStyle = `${p.color}${p.alpha})`;
         ctx.fill();
 
-        // 3. Draw Connecting Lines (Constellation Web)
+        // Connecting lines (constellation)
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
@@ -221,34 +193,34 @@ export default function TechBackground({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxConnectDistance) {
-            const lineAlpha = (1 - dist / maxConnectDistance) * 0.12;
+            const lineAlpha = (1 - dist / maxConnectDistance) * 0.1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(255,255,255,${lineAlpha})`;
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
 
-        // Connect to mouse if nearby
+        // Mouse connector
         if (mouseRef.current.active) {
           const mdx = p.x - mouseRef.current.x;
           const mdy = p.y - mouseRef.current.y;
           const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-          if (mdist < 140) {
-            const mAlpha = (1 - mdist / 140) * 0.22;
+          if (mdist < 130) {
+            const mAlpha = (1 - mdist / 130) * 0.18;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${mAlpha})`;
-            ctx.lineWidth = 0.9;
+            ctx.strokeStyle = `rgba(255,255,255,${mAlpha})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
 
-      // 4. Draw Floating Programming Symbols
+      // 3. Floating programming symbols
       if (showSymbols) {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -268,8 +240,8 @@ export default function TechBackground({
           ctx.save();
           ctx.translate(s.x, s.y);
           ctx.rotate(s.rotation);
-          ctx.font = `600 ${s.size}px 'JetBrains Mono', 'Space Mono', monospace`;
-          ctx.fillStyle = `rgba(0, 240, 255, ${s.alpha})`;
+          ctx.font = `500 ${s.size}px 'JetBrains Mono', monospace`;
+          ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
           ctx.fillText(s.text, 0, 0);
           ctx.restore();
         }
@@ -280,7 +252,6 @@ export default function TechBackground({
       }
     };
 
-    // Initial render
     render();
 
     return () => {
