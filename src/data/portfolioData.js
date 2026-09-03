@@ -1,204 +1,241 @@
 // ============================================================
-// portfolioData.js — All portfolio content for Yash Warungase
-// Update this file to customize your portfolio content
+// portfolioData.js — Yash Warungase | Digital Developer Universe
 // ============================================================
 
 export const PERSONAL = {
   name: 'Yash Sandip Warungase',
   firstName: 'YASH',
-  lastName: 'WARUNGASE.',
-  role: 'FULL STACK DEVELOPER & BUILDER',
-  tagline: 'Crafting scalable full-stack applications, robust backend systems, and modern web experiences that are',
-  taglineHighlight: 'clean, fast',
-  taglineEnd: 'and built to perform.',
-  status: 'OPEN TO WORK',
-  location: 'PUNE, IN',
-  locationCoords: '18.52° N',
-  // ⚠️ Update with your real links:
+  lastName: 'WARUNGASE',
+  role: 'FULL STACK DEVELOPER',
+  roles: [
+    'FULL STACK DEVELOPER',
+    'SOFTWARE BUILDER',
+    'PROBLEM SOLVER',
+    'AI/ML ENTHUSIAST',
+  ],
+  tagline:
+    'Engineering scalable full-stack architectures, high-performance web systems, and intelligent digital experiences with surgical precision.',
+  location: 'Pune, India',
+  coordinates: '18.5204° N, 73.8567° E',
+  status: 'ONLINE // OPEN TO OPPORTUNITIES',
+  statusShort: 'OPEN TO WORK',
+  uptime: '99.98%',
+  experienceYears: '3+ YRS EXPLORING',
   email: 'yashwarungase5@gmail.com',
-  phone: '+91 XXXXXXXXXX',
+  phone: '+91 80104 22754',
   github: 'https://github.com/yashw72',
   linkedin: 'https://linkedin.com/in/yashwarungase',
   leetcode: 'https://leetcode.com/yashw72',
-  whatsapp: 'https://wa.me/91XXXXXXXXXX',
   resume: '/resume.pdf',
-  profileImage: '/profile.jpg',
-  passId: '#7254-PUNE-IN',
-  passAccess: 'YW // ACCESS 01',
-  passYear: '2026',
+  avatarInitials: 'YW',
 };
 
-export const HERO_STATS = [
-  { value: '04+', label: 'PROJECTS BUILT' },
-  { value: 'FULL STACK', label: '& AI/ML WORKFLOWS' },
-  { value: 'B.E. IT', label: '(2025–2028)' },
-];
-
-export const HERO_TECH_BADGES = [
-  { icon: '⚛', label: 'REACT' },
-  { icon: '⬡', label: 'JAVASCRIPT' },
-  { icon: '🐍', label: 'PYTHON' },
-  { icon: '⬢', label: 'NODE.JS' },
-  { icon: '🍃', label: 'MONGODB' },
-];
-
-export const MARQUEE_ITEMS = [
-  'OPEN TO WORK',
-  'BUILDING DIGITAL PRODUCTS',
-  'FULL STACK DEVELOPMENT',
-  'REACT',
-  'NODE.JS',
-  'PYTHON',
-  'JAVASCRIPT',
-  'TYPESCRIPT',
-  'REST APIS',
-  'MONGODB',
-];
-
-export const ABOUT_BIO = {
-  quote1Parts: [
-    "I'm an aspiring full-stack developer with a strong foundation in ",
-    { chip: 'React & JavaScript' },
-    ', ',
-    { chip: 'Node.js & Express' },
-    ', and ',
-    { chip: 'Python & Django' },
-    '. Currently pursuing B.E. in Information Technology at Pune, I build end-to-end web applications with clean, maintainable code.',
+export const DIGITAL_IDENTITY = {
+  codename: 'YASH.DEV // 01',
+  handle: '@yashw72',
+  title: 'FULL STACK SOFTWARE ENGINEER',
+  bioLines: [
+    'Focused on architecting end-to-end distributed web applications, robust backend microservices, and reactive user interfaces.',
+    'Passionate about computational problem solving, data structures & algorithms, and bridging modern web development with AI/ML workflows.',
   ],
-  quote2Parts: [
-    'I have hands-on experience with databases like ',
-    { chip: 'MongoDB, MySQL & PostgreSQL' },
-    ", and I'm passionate about ",
-    { chip: 'backend architecture & REST APIs' },
-    '. I love solving real-world problems through scalable, performance-driven solutions — and I never stop learning.',
+  telemetry: [
+    { label: 'CORE SPECIALTY', value: 'Full Stack & APIs' },
+    { label: 'BASE LOCATION', value: 'Pune, Maharashtra, IN' },
+    { label: 'PRIMARY STACK', value: 'React · Node.js · Python' },
+    { label: 'CURRENT PURSUIT', value: 'B.E. Information Technology' },
+    { label: 'METHODOLOGY', value: 'Clean Code · Test Driven' },
+    { label: 'AVAILABILITY', value: 'Full-time / Internships' },
   ],
-  meta: [
-    { label: 'LOCATION', value: 'Pune, India' },
-    { label: 'ROLE', value: 'Full Stack Dev' },
-    { label: 'STATUS', value: 'Open to Work ✦' },
-    { label: 'FOCUS', value: 'Web Development' },
+  interests: [
+    { title: 'WEB ENGINEERING', desc: 'Scalable cloud apps, RESTful architectures, and microservices.' },
+    { title: 'AI / ML INTEGRATION', desc: 'Practical machine learning models, NumPy/Pandas pipelines, and predictive APIs.' },
+    { title: 'DSA & PROBLEM SOLVING', desc: 'Algorithm optimization, algorithmic complexity analysis, and competitive programming.' },
+    { title: 'SYSTEM DESIGN', desc: 'State machines, database normalization, relational & NoSQL data modeling.' },
   ],
 };
 
-export const SKILL_CATEGORIES = [
-  {
-    id: 'languages',
-    label: 'LANGUAGES',
-    skills: ['C++', 'Java', 'Python', 'JavaScript', 'TypeScript'],
+export const TECH_ARSENAL = {
+  categories: [
+    { id: 'programming', label: 'PROGRAMMING', count: 5 },
+    { id: 'frontend', label: 'FRONTEND', count: 4 },
+    { id: 'backend', label: 'BACKEND', count: 4 },
+    { id: 'data_ai', label: 'DATA & AI', count: 4 },
+    { id: 'tools', label: 'TOOLS', count: 4 },
+  ],
+  skills: {
+    programming: [
+      { name: 'C', level: 'Fundamental', tag: 'System / Low-Level', icon: '©' },
+      { name: 'C++', level: 'Advanced DSA', tag: 'STL / Algorithms', icon: '++' },
+      { name: 'Java', level: 'OOP & Architecture', tag: 'Core / Enterprise', icon: '☕' },
+      { name: 'Python', level: 'Backend & Data', tag: 'Django / ML', icon: '🐍' },
+      { name: 'JavaScript', level: 'Modern ES6+', tag: 'Full Stack Web', icon: 'JS' },
+    ],
+    frontend: [
+      { name: 'React', level: 'Advanced SPAs', tag: 'Hooks / State / Routing', icon: '⚛' },
+      { name: 'Tailwind CSS', level: 'Rapid UI', tag: 'Responsive Design', icon: '🌊' },
+      { name: 'HTML5', level: 'Semantic Markup', tag: 'Accessibility / SEO', icon: '◈' },
+      { name: 'CSS3', level: 'Modern Animations', tag: 'Flex / Grid / Transitions', icon: '✧' },
+    ],
+    backend: [
+      { name: 'Node.js', level: 'Runtime Engine', tag: 'Asynchronous Event Loop', icon: '⬢' },
+      { name: 'Express.js', level: 'Microservices', tag: 'Middleware / Routing', icon: '⚡' },
+      { name: 'Django', level: 'Python Framework', tag: 'ORM / Auth / Admin', icon: '🎸' },
+      { name: 'REST APIs', level: 'API Design', tag: 'JWT / CRUD / Webhooks', icon: '⇄' },
+    ],
+    data_ai: [
+      { name: 'NumPy', level: 'Array Math', tag: 'Scientific Computing', icon: '∑' },
+      { name: 'Pandas', level: 'Data Wrangling', tag: 'DataFrames / ETL', icon: '🐼' },
+      { name: 'Power BI', level: 'Visualization', tag: 'Dashboards & Reports', icon: '📊' },
+      { name: 'AI / ML', level: 'Model Workflows', tag: 'Scikit-learn / Supervised', icon: '🧠' },
+    ],
+    tools: [
+      { name: 'Git', level: 'Version Control', tag: 'Branching / Merges', icon: '⌥' },
+      { name: 'GitHub', level: 'CI / CD & Collaboration', tag: 'Actions / Releases', icon: '⊛' },
+      { name: 'VS Code', level: 'Primary IDE', tag: 'Workspaces / Debugging', icon: '⌨' },
+      { name: 'Postman', level: 'API Testing', tag: 'Collections & Mock APIs', icon: '🚀' },
+    ],
   },
-  {
-    id: 'frontend',
-    label: 'FRONTEND',
-    skills: ['React', 'HTML / CSS', 'TailwindCSS', 'Vite'],
-  },
-  {
-    id: 'backend',
-    label: 'BACKEND',
-    skills: ['Node.js', 'Express.js', 'Django', 'REST APIs'],
-  },
-  {
-    id: 'database',
-    label: 'DATABASE',
-    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite'],
-  },
-  {
-    id: 'tools',
-    label: 'TOOLS',
-    skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Docker'],
-  },
-];
+};
 
-// ⚠️ Replace with your REAL projects:
-export const PROJECTS = [
+export const BUILD_LOGS = [
   {
-    id: '01',
-    title: 'TaskFlow Pro',
-    badge: 'FULL-STACK PRODUCTIVITY APP',
+    id: 'clickngo',
+    code: 'BUILD_01',
+    title: 'CLICKNGO',
+    subtitle: 'High-Throughput Bus Ticketing & Transit Platform',
+    category: 'FULL STACK WEB SYSTEM',
     description:
-      'A full-stack productivity platform where users create, organize, and track tasks with real-time updates, user authentication, priority scheduling, and team collaboration features. Built with a focus on clean UX and scalable backend architecture.',
-    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'TailwindCSS'],
+      'An end-to-end intelligent bus ticketing and travel management web application that eliminates manual booking bottlenecks. Includes interactive seat matrices, dynamic schedule search, instant ticket generation with unique QR identifiers, and real-time seat lock state to avoid race-condition booking collisions.',
+    features: [
+      'Interactive visual seat allocation map with real-time locking state',
+      'Dynamic multi-city route search and timing scheduler',
+      'Instant digital ticket generation with verification QR codes',
+      'Secure user authentication and ticket history repository',
+      'Optimized backend API handling concurrent passenger requests',
+    ],
+    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     github: 'https://github.com/yashw72',
     demo: null,
-    projectNumber: '01',
+    metrics: { efficiency: '+40% Faster Booking', latency: '<120ms API Response' },
   },
   {
-    id: '02',
-    title: 'ShopCart',
-    badge: 'E-COMMERCE PLATFORM',
+    id: 'fitnexus',
+    code: 'BUILD_02',
+    title: 'FITNEXUS',
+    subtitle: 'AI-Powered Fitness, Nutrition & Workout Ecosystem',
+    category: 'FULL STACK HEALTH TECH',
     description:
-      'A feature-rich e-commerce web application with product listings, category filtering, cart management, user authentication, and order tracking. Includes an admin panel for inventory and order management built with Django REST Framework.',
-    stack: ['React', 'Django', 'Python', 'PostgreSQL', 'REST APIs'],
+      'A comprehensive digital wellness platform engineered to track workouts, calculate micronutrient targets, and deliver intelligent exercise guidance. Powered by algorithmic fitness calculation formulas, dynamic data charts, and customized regimen builder workflows.',
+    features: [
+      'Interactive workout routine builder with customized sets & reps telemetry',
+      'Nutrient intake analytics calculator (BMR, TDEE, macro breakdown)',
+      'Visual progress logs using animated metric dashboards',
+      'Responsive dark interface built for seamless mobile fitness tracking',
+      'Extensible architecture ready for real-time sensor & wearable integrations',
+    ],
+    stack: ['React', 'JavaScript', 'Node.js', 'Express.js', 'Tailwind CSS'],
     github: 'https://github.com/yashw72',
     demo: null,
-    projectNumber: '02',
+    metrics: { retention: 'Daily Habit Tracking', precision: 'Strict Macro Calcs' },
   },
   {
-    id: '03',
-    title: 'DevConnect',
-    badge: 'DEVELOPER SOCIAL PLATFORM',
+    id: 'localkart',
+    code: 'BUILD_03',
+    title: 'LOCALKART',
+    subtitle: 'Hyperlocal Marketplace & Merchant Management Platform',
+    category: 'COMMERCE INFRASTRUCTURE',
     description:
-      'A developer-focused social networking platform where users share projects, follow peers, post tech articles, and connect professionally. Features JWT authentication, real-time notifications, and a clean card-based feed interface.',
-    stack: ['React', 'Node.js', 'MongoDB', 'Express.js', 'TypeScript'],
+      'A hyperlocal e-commerce ecosystem empowering neighborhood businesses and local merchants to digitize product catalogues, accept online orders, and manage inventory seamlessly without high third-party aggregator commissions.',
+    features: [
+      'Merchant dashboard for inventory tracking and catalog pricing management',
+      'Geo-targeted customer storefront with fast category filtering',
+      'Persistent shopping bag and reactive checkout workflow',
+      'Order dispatch status tracking with live delivery stage updates',
+      'Secure session validation and merchant administrative control',
+    ],
+    stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
     github: 'https://github.com/yashw72',
     demo: null,
-    projectNumber: '03',
+    metrics: { scale: 'Zero Commission Model', speed: 'Ultra-fast Catalog Query' },
   },
 ];
 
 export const JOURNEY = [
   {
     id: 1,
-    type: 'EDUCATION',
-    title: 'B.E. in Information Technology',
-    organization: 'Pune University · Pune, Maharashtra',
-    period: 'AUG 2025 – 2028 PRESENT',
-    highlight: 'In Progress',
+    year: '2025 – PRESENT',
+    role: 'B.E. IN INFORMATION TECHNOLOGY',
+    institution: 'Dr. D. Y. Patil Institute of Technology, Pune',
+    badge: 'CURRENT ACADEMIC MILESTONE',
+    type: 'DEGREE',
     description:
-      'Pursuing core IT & Computer Science subjects including Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, Object-Oriented Programming, and Software Engineering principles.',
-    link: null,
-    linkLabel: null,
+      'Pursuing Bachelor of Engineering in Information Technology. Deepening mastery across Core Computer Science: Advanced Data Structures & Algorithms, Distributed Systems, Database Management Systems, Cloud Computing, and Software Engineering.',
+    highlights: ['Specialization in IT Systems', 'Active Technical Coding & DSA', 'Collaborative Hackathons & Projects'],
   },
   {
     id: 2,
-    type: 'EDUCATION',
-    title: 'HSC — 12th Grade',
-    organization: 'Maharashtra State Board · Pune, Maharashtra',
-    period: 'JUN 2023 – MAR 2025',
-    highlight: null,
+    year: 'JAN 2025 – JULY 2025',
+    role: 'PYTHON WITH DATA SCIENCE & AI/ML INTERN',
+    institution: 'Sumago Infotech Pvt. Ltd.',
+    badge: 'INDUSTRY EXPERIENCE',
+    type: 'INTERNSHIP',
     description:
-      'Completed Higher Secondary Certificate with strong performance in Mathematics, Physics, and Computer Science. Developed foundational problem-solving and analytical thinking skills.',
-    link: null,
-    linkLabel: null,
+      'Engineered machine learning pipelines and Python backend solutions. Implemented data preprocessing routines with NumPy and Pandas, conducted exploratory data analysis, and integrated intelligent predictive endpoints into web applications.',
+    highlights: [
+      'Engineered data processing workflows using NumPy & Pandas',
+      'Built and evaluated machine learning predictive models',
+      'Collaborated on backend API connectivity with development teams',
+    ],
+  },
+  {
+    id: 3,
+    year: '2022 – 2025',
+    role: 'DIPLOMA IN COMPUTER TECHNOLOGY',
+    institution: 'Government Polytechnic, Nashik',
+    badge: 'FOUNDATIONAL MILESTONE',
+    type: 'DIPLOMA',
+    description:
+      'Graduated with honors in Computer Technology. Built a rigorous foundation in structured programming (C, C++, Java), computer architecture, operating system fundamentals, relational databases, and network protocols.',
+    highlights: ['Distinction in Computer Engineering Core', 'Practical Labs in C/C++/Java/DBMS', 'Final Capstone Project Execution'],
   },
 ];
 
+export const CODE_LAB = {
+  tagline: 'ALGORITHMIC AGILITY & CODE DISCIPLINE',
+  description:
+    'Dedicated developer workspace showcasing problem-solving methodology, algorithmic rigor, and continuous open-source craftsmanship.',
+  editorSnippet: `// Yash Warungase — Algorithmic Core Engine
+class DeveloperEngine {
+  constructor() {
+    this.name = "Yash Sandip Warungase";
+    this.role = "Full Stack Developer";
+    this.status = "Building high-performance systems";
+    this.dsaFocus = ["Binary Trees", "Graphs", "DP", "Sliding Window"];
+  }
+
+  optimizeSolution(problem) {
+    const timeComplexity = "O(n log n)";
+    const spaceComplexity = "O(1) auxiliary";
+    return { status: "ACCEPTED", runtime: "Beats 98%", problem };
+  }
+
+  commitWork() {
+    return "git commit -m 'feat: scalable microservice architecture'";
+  }
+}
+
+export default new DeveloperEngine();`,
+  stats: [
+    { label: 'PLATFORM', value: 'LeetCode & GitHub' },
+    { label: 'FOCUS', value: 'DSA & Web Architecture' },
+    { label: 'METHOD', value: 'Clean Code & Optimization' },
+    { label: 'PIPELINE', value: 'Git / CI / Agile' },
+  ],
+};
+
 export const SOCIAL_LINKS = [
-  {
-    label: 'GITHUB',
-    icon: '⌥',
-    description: 'View my code & projects',
-    url: 'https://github.com/yashw72',
-    arrow: '↗',
-  },
-  {
-    label: 'LINKEDIN',
-    icon: 'in',
-    description: 'Connect professionally',
-    url: 'https://linkedin.com/in/yashwarungase',
-    arrow: '↗',
-  },
-  {
-    label: 'LEETCODE',
-    icon: '{}',
-    description: 'See my problem solving',
-    url: 'https://leetcode.com/yashw72',
-    arrow: '↗',
-  },
-  {
-    label: 'EMAIL',
-    icon: '@',
-    description: 'yashwarungase5@gmail.com',
-    url: 'mailto:yashwarungase5@gmail.com',
-    arrow: '→',
-  },
+  { label: 'GITHUB', url: 'https://github.com/yashw72', icon: '⌥', note: 'Inspect source code & repositories' },
+  { label: 'LINKEDIN', url: 'https://linkedin.com/in/yashwarungase', icon: 'in', note: 'Professional career network' },
+  { label: 'LEETCODE', url: 'https://leetcode.com/yashw72', icon: '{ }', note: 'Algorithmic problem solving' },
+  { label: 'EMAIL', url: 'mailto:yashwarungase5@gmail.com', icon: '@', note: 'Direct developer communication' },
 ];
