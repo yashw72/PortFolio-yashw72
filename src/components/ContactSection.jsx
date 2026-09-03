@@ -66,7 +66,7 @@ export default function ContactSection() {
               LET'S BUILD{' '}
               <span
                 style={{
-                  WebkitTextStroke: '3px #000',
+                  WebkitTextStroke: '2px rgba(255,255,255,0.3)',
                   color: 'transparent',
                   fontWeight: 800,
                 }}

@@ -18,11 +18,11 @@ export const PERSONAL = {
   email: 'yashwarungase5@gmail.com',
   phone: '+91 XXXXXXXXXX',
   github: 'https://github.com/yashw72',
-  linkedin: 'https://linkedin.com/in/yashwarungase', // Update this
-  leetcode: 'https://leetcode.com/yashw72',           // Update this
-  whatsapp: 'https://wa.me/91XXXXXXXXXX',             // Update this
+  linkedin: 'https://linkedin.com/in/yashwarungase',
+  leetcode: 'https://leetcode.com/yashw72',
+  whatsapp: 'https://wa.me/91XXXXXXXXXX',
   resume: '/resume.pdf',
-  profileImage: '/profile.jpg',                        // Add profile photo to /public
+  profileImage: '/profile.jpg',
   passId: '#7254-PUNE-IN',
   passAccess: 'YW // ACCESS 01',
   passYear: '2026',
@@ -36,10 +36,10 @@ export const HERO_STATS = [
 
 export const HERO_TECH_BADGES = [
   { icon: '⚛', label: 'REACT' },
-  { icon: '🟨', label: 'JAVASCRIPT' },
+  { icon: '⬡', label: 'JAVASCRIPT' },
   { icon: '🐍', label: 'PYTHON' },
-  { icon: '🟢', label: 'NODE.JS' },
-  { icon: '🗄', label: 'MONGODB' },
+  { icon: '⬢', label: 'NODE.JS' },
+  { icon: '🍃', label: 'MONGODB' },
 ];
 
 export const MARQUEE_ITEMS = [
@@ -59,18 +59,18 @@ export const ABOUT_BIO = {
   quote1Parts: [
     "I'm an aspiring full-stack developer with a strong foundation in ",
     { chip: 'React & JavaScript' },
-    ", ",
+    ', ',
     { chip: 'Node.js & Express' },
-    ", and ",
+    ', and ',
     { chip: 'Python & Django' },
-    ". Currently pursuing B.E. in Information Technology at Pune, I build end-to-end web applications with clean, maintainable code.",
+    '. Currently pursuing B.E. in Information Technology at Pune, I build end-to-end web applications with clean, maintainable code.',
   ],
   quote2Parts: [
-    "I have hands-on experience with databases like ",
+    'I have hands-on experience with databases like ',
     { chip: 'MongoDB, MySQL & PostgreSQL' },
     ", and I'm passionate about ",
     { chip: 'backend architecture & REST APIs' },
-    ". I love solving real-world problems through scalable, performance-driven solutions — and I never stop learning.",
+    '. I love solving real-world problems through scalable, performance-driven solutions — and I never stop learning.',
   ],
   meta: [
     { label: 'LOCATION', value: 'Pune, India' },
@@ -84,37 +84,27 @@ export const SKILL_CATEGORIES = [
   {
     id: 'languages',
     label: 'LANGUAGES',
-    accentColor: '#38BDF8',
-    textColor: '#38BDF8',
     skills: ['C++', 'Java', 'Python', 'JavaScript', 'TypeScript'],
   },
   {
     id: 'frontend',
     label: 'FRONTEND',
-    accentColor: '#00F0FF',
-    textColor: '#00F0FF',
-    skills: ['⚛ React', '◈ HTML / CSS', '🌊 TailwindCSS', '⚡ Vite'],
+    skills: ['React', 'HTML / CSS', 'TailwindCSS', 'Vite'],
   },
   {
     id: 'backend',
     label: 'BACKEND',
-    accentColor: '#818CF8',
-    textColor: '#818CF8',
-    skills: ['🟢 Node.js', '🚂 Express.js', '🎸 Django', '⚡ REST APIs'],
+    skills: ['Node.js', 'Express.js', 'Django', 'REST APIs'],
   },
   {
     id: 'database',
     label: 'DATABASE',
-    accentColor: '#34D399',
-    textColor: '#34D399',
-    skills: ['🍃 MongoDB', '🗄 MySQL', '🐘 PostgreSQL', '◼ SQLite'],
+    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite'],
   },
   {
     id: 'tools',
     label: 'TOOLS',
-    accentColor: '#F59E0B',
-    textColor: '#F59E0B',
-    skills: ['⎇ Git', '⊛ GitHub', '◧ VS Code', '🔬 Postman', '🐋 Docker'],
+    skills: ['Git', 'GitHub', 'VS Code', 'Postman', 'Docker'],
   },
 ];
 
@@ -124,43 +114,34 @@ export const PROJECTS = [
     id: '01',
     title: 'TaskFlow Pro',
     badge: 'FULL-STACK PRODUCTIVITY APP',
-    badgeColor: 'rgba(56, 189, 248, 0.15)',
-    badgeTextColor: '#38BDF8',
     description:
       'A full-stack productivity platform where users create, organize, and track tasks with real-time updates, user authentication, priority scheduling, and team collaboration features. Built with a focus on clean UX and scalable backend architecture.',
     stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'TailwindCSS'],
     github: 'https://github.com/yashw72',
     demo: null,
     projectNumber: '01',
-    bgAccent: '#38BDF8',
   },
   {
     id: '02',
     title: 'ShopCart',
     badge: 'E-COMMERCE PLATFORM',
-    badgeColor: 'rgba(129, 140, 248, 0.15)',
-    badgeTextColor: '#818CF8',
     description:
       'A feature-rich e-commerce web application with product listings, category filtering, cart management, user authentication, and order tracking. Includes an admin panel for inventory and order management built with Django REST Framework.',
     stack: ['React', 'Django', 'Python', 'PostgreSQL', 'REST APIs'],
     github: 'https://github.com/yashw72',
     demo: null,
     projectNumber: '02',
-    bgAccent: '#818CF8',
   },
   {
     id: '03',
     title: 'DevConnect',
     badge: 'DEVELOPER SOCIAL PLATFORM',
-    badgeColor: 'rgba(0, 240, 255, 0.15)',
-    badgeTextColor: '#00F0FF',
     description:
       'A developer-focused social networking platform where users share projects, follow peers, post tech articles, and connect professionally. Features JWT authentication, real-time notifications, and a clean card-based feed interface.',
     stack: ['React', 'Node.js', 'MongoDB', 'Express.js', 'TypeScript'],
     github: 'https://github.com/yashw72',
     demo: null,
     projectNumber: '03',
-    bgAccent: '#00F0FF',
   },
 ];
 
@@ -168,8 +149,6 @@ export const JOURNEY = [
   {
     id: 1,
     type: 'EDUCATION',
-    typeColor: 'rgba(0, 240, 255, 0.12)',
-    typeTextColor: '#00F0FF',
     title: 'B.E. in Information Technology',
     organization: 'Pune University · Pune, Maharashtra',
     period: 'AUG 2025 – 2028 PRESENT',
@@ -182,8 +161,6 @@ export const JOURNEY = [
   {
     id: 2,
     type: 'EDUCATION',
-    typeColor: 'rgba(0, 240, 255, 0.12)',
-    typeTextColor: '#00F0FF',
     title: 'HSC — 12th Grade',
     organization: 'Maharashtra State Board · Pune, Maharashtra',
     period: 'JUN 2023 – MAR 2025',

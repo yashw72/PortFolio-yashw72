@@ -1,5 +1,5 @@
 // components/ProjectsSection.jsx
-// Stacked project cards with alternating image-left / image-right layout
+// Stacked project cards — alternating layout, monochrome aesthetic
 import { PROJECTS } from '../data/portfolioData';
 
 function ProjectCard({ project, index }) {
@@ -11,43 +11,18 @@ function ProjectCard({ project, index }) {
       aria-labelledby={`project-title-${project.id}`}
     >
       {/* Visual / image cell */}
-      <div
-        className="project-visual"
-        style={{ background: `${project.bgAccent}12` }}
-        aria-hidden="true"
-      >
-        <div
-          className="project-visual-num"
-          style={{ WebkitTextStroke: `2px ${project.bgAccent}44` }}
-        >
-          {project.projectNumber}
-        </div>
-        {/* Bottom accent stripe */}
-        <div
-          className="project-visual-accent"
-          style={{ background: project.bgAccent }}
-        />
+      <div className="project-visual" aria-hidden="true">
+        <div className="project-visual-num">{project.projectNumber}</div>
+        <div className="project-visual-accent" />
       </div>
 
       {/* Content cell */}
       <div className="project-content">
         <span className="project-num-label">— {project.id} —</span>
-
-        <span
-          className="project-badge"
-          style={{
-            background: project.badgeColor,
-            color: project.badgeTextColor,
-            borderColor: '#000',
-          }}
-        >
-          {project.badge}
-        </span>
-
+        <span className="project-badge">{project.badge}</span>
         <h3 className="project-title" id={`project-title-${project.id}`}>
           {project.title}
         </h3>
-
         <p className="project-desc">{project.description}</p>
 
         {/* Tech stack tags */}
@@ -96,13 +71,11 @@ export default function ProjectsSection() {
           <p className="section-label">03 / SELECTED WORK</p>
           <h2 className="projects-title">
             THINGS I'VE{' '}
-            <span
-              style={{
-                WebkitTextStroke: '3px #000',
-                color: 'transparent',
-                fontWeight: 800,
-              }}
-            >
+            <span style={{
+              WebkitTextStroke: '2px rgba(255,255,255,0.3)',
+              color: 'transparent',
+              fontWeight: 800,
+            }}>
               BUILT.
             </span>
           </h2>

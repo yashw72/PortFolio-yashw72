@@ -1,5 +1,5 @@
 // components/SkillsSection.jsx
-// Dark #121212 background with 5-row Neo-Brutalist skill grid
+// Monochrome skills table — 5 category rows with skill chips
 import { SKILL_CATEGORIES } from '../data/portfolioData';
 
 export default function SkillsSection() {
@@ -20,26 +20,19 @@ export default function SkillsSection() {
           </p>
         </div>
 
-        {/* Skills grid table */}
+        {/* Skills table */}
         <div className="skills-grid" role="list" aria-label="Tech skills by category">
           {SKILL_CATEGORIES.map((cat) => (
             <div key={cat.id} className="skills-row" role="listitem">
               {/* Category badge */}
               <div className="skill-category-cell">
-                <span
-                  className="skill-cat-badge"
-                  style={{ color: cat.accentColor, borderColor: cat.accentColor }}
-                >
-                  {cat.label}
-                </span>
+                <span className="skill-cat-badge">{cat.label}</span>
               </div>
 
               {/* Skill chips */}
               <div className="skill-items-cell">
                 {cat.skills.map((skill) => (
-                  <span key={skill} className="skill-chip">
-                    {skill}
-                  </span>
+                  <span key={skill} className="skill-chip">{skill}</span>
                 ))}
               </div>
             </div>

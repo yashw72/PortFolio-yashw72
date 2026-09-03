@@ -1,28 +1,14 @@
 // components/JourneySection.jsx
-// GitHub CTA banner + "WHERE I'VE BEEN." header + timeline education/experience cards
+// GitHub CTA banner + timeline cards — monochrome theme
 import { PERSONAL, JOURNEY } from '../data/portfolioData';
 
 function JourneyCard({ item }) {
   return (
-    <article
-      className="journey-card"
-      aria-labelledby={`journey-title-${item.id}`}
-    >
+    <article className="journey-card" aria-labelledby={`journey-title-${item.id}`}>
       {/* Left meta column */}
       <div className="journey-meta">
-        <span
-          className="journey-type-badge"
-          style={{
-            background: item.typeColor,
-            color: item.typeTextColor,
-            borderColor: '#000',
-          }}
-        >
-          {item.type}
-        </span>
-
+        <span className="journey-type-badge">{item.type}</span>
         <p className="journey-period">{item.period}</p>
-
         {item.highlight && (
           <div className="journey-hl">{item.highlight}</div>
         )}
@@ -60,9 +46,7 @@ export default function JourneySection() {
       <div className="container">
         {/* GitHub CTA Banner */}
         <div className="github-banner">
-          <span className="github-banner-text">
-            MORE PROJECTS ON GITHUB →
-          </span>
+          <span className="github-banner-text">MORE PROJECTS ON GITHUB →</span>
           <a
             href={PERSONAL.github}
             target="_blank"
@@ -79,19 +63,17 @@ export default function JourneySection() {
           <p className="section-label">04 / JOURNEY</p>
           <h2 className="journey-title">
             WHERE I'VE{' '}
-            <span
-              style={{
-                WebkitTextStroke: '3px #000',
-                color: 'transparent',
-                fontWeight: 800,
-              }}
-            >
+            <span style={{
+              WebkitTextStroke: '2px rgba(255,255,255,0.3)',
+              color: 'transparent',
+              fontWeight: 800,
+            }}>
               BEEN.
             </span>
           </h2>
         </div>
 
-        {/* Timeline cards */}
+        {/* Cards */}
         <div className="journey-list">
           {JOURNEY.map((item) => (
             <JourneyCard key={item.id} item={item} />
