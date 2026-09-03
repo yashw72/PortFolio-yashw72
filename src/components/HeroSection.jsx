@@ -3,6 +3,7 @@
 // stats bar, and the Developer Pass lanyard ID card on the right
 import { useState } from 'react';
 import { PERSONAL, HERO_STATS, HERO_TECH_BADGES } from '../data/portfolioData';
+import TechBackground from './TechBackground';
 
 // Generate a CSS barcode-like pattern
 const BARCODE = [3,1,2,1,3,2,1,2,3,1,2,3,1,1,3,2,1,2,1,3,2,1,2];
@@ -81,6 +82,9 @@ function DeveloperPass() {
 export default function HeroSection() {
   return (
     <section id="hero" className="hero dot-bg">
+      {/* Interactive technical canvas background */}
+      <TechBackground />
+
       {/* Faint background watermark */}
       <div className="hero-watermark" aria-hidden="true">FULLSTACK</div>
 
