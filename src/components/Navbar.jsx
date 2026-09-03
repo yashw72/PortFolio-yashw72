@@ -1,40 +1,37 @@
 // components/Navbar.jsx
-// Interactive & professional sticky navigation bar with active section spy,
-// animated hamburger menu, smooth scrolling, resume CTA, and keyboard accessibility.
+// Sticky technical command bar with active section spy, mobile drawer, and resume CTA.
 
 import { useState, useEffect, useCallback } from 'react';
 import { PERSONAL } from '../data/portfolioData';
 
-const NAV_LINKS = [
-  { label: 'HOME',     href: '#hero',     id: 'hero' },
-  { label: 'ABOUT',   href: '#about',    id: 'about' },
-  { label: 'SKILLS',  href: '#skills',   id: 'skills' },
-  { label: 'PROJECTS',href: '#projects', id: 'projects' },
-  { label: 'JOURNEY', href: '#journey',  id: 'journey' },
-  { label: 'CONTACT', href: '#contact',  id: 'contact' },
+const NAV_ITEMS = [
+  { label: 'WORKSPACE', id: 'hero', href: '#hero' },
+  { label: 'IDENTITY', id: 'identity', href: '#identity' },
+  { label: 'ARSENAL', id: 'arsenal', href: '#arsenal' },
+  { label: 'BUILD LOGS', id: 'build-logs', href: '#build-logs' },
+  { label: 'JOURNEY', id: 'journey', href: '#journey' },
+  { label: 'CODE LAB', id: 'code-lab', href: '#code-lab' },
+  { label: 'CONNECT', id: 'contact', href: '#contact' },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Handle scroll state for navbar appearance and active section spy
+  // Scroll Spy
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Scrolled style trigger
-      setScrolled(window.scrollY > 25);
+      setScrolled(window.scrollY > 30);
 
-      // 2. Section spy logic
-      const scrollPosition = window.scrollY + 120; // Offset for navbar height
-
-      for (let i = NAV_LINKS.length - 1; i >= 0; i--) {
-        const sectionId = NAV_LINKS[i].id;
-        const sectionEl = document.getElementById(sectionId);
-        if (sectionEl) {
-          const top = sectionEl.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sectionId);
+      const scrollPos = window.scrollY + 140;
+      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
+        const item = NAV_ITEMS[i];
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            setActiveSection(item.id);
             break;
           }
         }
@@ -42,156 +39,146 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on Escape key press
+  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && menuOpen) {
-        setMenuOpen(false);
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [menuOpen]);
+  }, [mobileMenuOpen]);
 
-  // Smooth scroll handler
-  const scrollToSection = useCallback((e, href) => {
+  const scrollTo = useCallback((e, href) => {
     e.preventDefault();
-    setMenuOpen(false);
-
+    setMobileMenuOpen(false);
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
 
     if (element) {
       const navOffset = 70;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
+      const targetPos = element.getBoundingClientRect().top + window.pageYOffset - navOffset;
       window.scrollTo({
-        top: offsetPosition,
+        top: targetPos,
         behavior: 'smooth',
       });
-
       setActiveSection(targetId);
       window.history.pushState(null, '', href);
     }
   }, []);
 
   return (
-    <nav
-      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
-      aria-label="Main navigation"
-    >
-      <div className="navbar-inner">
-        {/* Brand / Logo */}
+    <header className={`workspace-navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-container">
+        {/* Brand Terminal Identifier */}
         <a
           href="#hero"
-          className="navbar-logo"
-          onClick={(e) => scrollToSection(e, '#hero')}
-          aria-label="Yash Warungase - Back to top"
+          className="navbar-brand-tag"
+          onClick={(e) => scrollTo(e, '#hero')}
+          aria-label="Yash Warungase Workspace Top"
         >
-          <span className="logo-badge">YW /&gt;</span>
-          <span className="logo-name">
-            YASH<span className="logo-dot">.</span>
-          </span>
+          <span className="brand-bracket">[</span>
+          <span className="brand-text">YASH.DEV</span>
+          <span className="brand-bracket">]</span>
+          <span className="brand-pulse-dot" />
         </a>
 
         {/* Desktop Navigation Links */}
-        <ul className="navbar-links" role="menubar">
-          {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <li key={link.label} role="none">
-                <a
-                  href={link.href}
-                  className={`nav-link ${isActive ? 'active' : ''}`}
-                  role="menuitem"
-                  aria-current={isActive ? 'page' : undefined}
-                  onClick={(e) => scrollToSection(e, link.href)}
-                >
-                  <span className="nav-link-text">{link.label}</span>
-                  {isActive && <span className="nav-active-pill" />}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <nav className="navbar-desktop-nav" aria-label="Workspace Navigation">
+          <ul className="nav-links-list">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <li key={item.id} className="nav-item">
+                  <a
+                    href={item.href}
+                    className={`nav-anchor ${isActive ? 'active' : ''}`}
+                    onClick={(e) => scrollTo(e, item.href)}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    <span className="anchor-text">{item.label}</span>
+                    {isActive && <span className="anchor-pill" />}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-        {/* Action Controls: Resume Button & Mobile Toggle */}
+        {/* Right CTA Actions */}
         <div className="navbar-actions">
-          {/* Desktop Resume CTA Button */}
           <a
             href={PERSONAL.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="navbar-resume-btn"
-            title="View Yash's Resume"
-            aria-label="View Resume (opens in new tab)"
+            className="navbar-resume-cta"
+            title="Download Developer Resume"
           >
             <span>RESUME</span>
-            <span className="resume-icon" aria-hidden="true">↗</span>
+            <span className="resume-icon">↗</span>
           </a>
 
-          {/* Mobile Animated Hamburger Button */}
+          {/* Mobile Hamburger Button */}
           <button
-            className={`mobile-menu-btn ${menuOpen ? 'active' : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation-menu"
+            type="button"
+            className={`navbar-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+            aria-expanded={mobileMenuOpen}
           >
-            <span className="hamburger-line top" />
-            <span className="hamburger-line middle" />
-            <span className="hamburger-line bottom" />
+            <span className="line top" />
+            <span className="line mid" />
+            <span className="line bot" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu with Backdrop */}
-      <div
-        id="mobile-navigation-menu"
-        className={`mobile-nav-wrapper ${menuOpen ? 'open' : ''}`}
-        aria-hidden={!menuOpen}
-      >
-        <div className="mobile-nav-backdrop" onClick={() => setMenuOpen(false)} />
-        <div className="mobile-nav" role="menu">
-          <div className="mobile-nav-header">
-            <span className="mobile-nav-label">// NAVIGATION</span>
+      {/* Mobile Drawer */}
+      <div className={`navbar-mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-drawer-backdrop" onClick={() => setMobileMenuOpen(false)} />
+        <div className="mobile-drawer-panel">
+          <div className="drawer-header">
+            <span className="drawer-title">// WORKSPACE_INDEX</span>
+            <button
+              type="button"
+              className="drawer-close-btn"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              ✕
+            </button>
           </div>
 
-          <div className="mobile-nav-links">
-            {NAV_LINKS.map((link, idx) => {
-              const isActive = activeSection === link.id;
+          <ul className="drawer-links-list">
+            {NAV_ITEMS.map((item, idx) => {
+              const isActive = activeSection === item.id;
               return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`mobile-nav-link ${isActive ? 'active' : ''}`}
-                  role="menuitem"
-                  aria-current={isActive ? 'page' : undefined}
-                  style={{ animationDelay: `${idx * 0.04}s` }}
-                  onClick={(e) => scrollToSection(e, link.href)}
-                >
-                  <span className="mobile-link-idx">0{idx + 1}</span>
-                  <span className="mobile-link-text">{link.label}</span>
-                  {isActive && <span className="mobile-active-dot">●</span>}
-                </a>
+                <li key={item.id}>
+                  <a
+                    href={item.href}
+                    className={`drawer-link ${isActive ? 'active' : ''}`}
+                    onClick={(e) => scrollTo(e, item.href)}
+                  >
+                    <span className="drawer-link-idx">0{idx + 1}</span>
+                    <span className="drawer-link-label">{item.label}</span>
+                    {isActive && <span className="drawer-active-dot">●</span>}
+                  </a>
+                </li>
               );
             })}
-          </div>
+          </ul>
 
-          {/* Mobile Resume CTA Button */}
-          <div className="mobile-nav-footer">
+          <div className="drawer-footer">
             <a
               href={PERSONAL.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-coral mobile-resume-btn"
-              onClick={() => setMenuOpen(false)}
+              className="btn btn-primary drawer-resume-btn"
+              onClick={() => setMobileMenuOpen(false)}
             >
               <span>DOWNLOAD RESUME</span>
               <span>↓</span>
@@ -199,6 +186,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
